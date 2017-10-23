@@ -1,11 +1,14 @@
-package com.site.report;
+package com.site.controller;
 
+import com.site.model.DocumentFormat;
+import com.site.service.ReportService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,9 +20,10 @@ public class ReportRestController {
 	private final ReportService service;
 
 	@GetMapping
-	public ResponseEntity sendReport(@RequestParam String email,
-	                                 @RequestParam(name = "doc_format", required = false) String docFormat,
+	@ResponseStatus(HttpStatus.OK)
+	public void sendReport(@RequestParam String email,
+	                                 @RequestParam(name = "doc_format", required = false) DocumentFormat format,
 	                                 @RequestParam(required = false) String filter) {
-		return null;
+		service.sendReport(email, format, filter);
 	}
 }
