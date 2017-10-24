@@ -2,6 +2,9 @@ package com.site.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.AllArgsConstructor;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -10,6 +13,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.io.IOException;
+import java.io.Reader;
 import java.util.Properties;
 
 @Configuration
@@ -43,6 +48,17 @@ public class PersistenceConfig {
 		sessionFactoryBean.setHibernateProperties(hibernateProperties());
 		sessionFactoryBean.setPackagesToScan(environment.getProperty("hibernate.entity.package"));
 		return sessionFactoryBean;
+	}
+
+	@Bean
+	public SqlSessionFactory sessionFactory() {
+		Reader reader = null;
+		try {
+			reader = Resources.getResourceAsReader("mybatis-config.xml");
+		} catch (IOException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+		return new SqlSessionFactoryBuilder().build(reader);
 	}
 
 	private Properties hibernateProperties() {
