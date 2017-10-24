@@ -1,4 +1,4 @@
-package com.site.dao;
+package com.site.repository;
 
 import com.site.mapper.ReportMapper;
 import com.site.model.Report;
