@@ -22,8 +22,8 @@ public class ReportRestController {
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
 	public void sendReport(@RequestParam String email,
-	                                 @RequestParam(name = "doc_format", required = false) DocumentFormat format,
-	                                 @RequestParam(required = false) String filter) {
+	                       @RequestParam(name = "doc_format", required = false) DocumentFormat format,
+	                       @RequestParam(required = false) String filter) {
 		service.sendReport(email, format, filter);
 	}
 }
