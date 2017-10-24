@@ -20,7 +20,7 @@ public class PersistenceConfig {
 		try {
 			reader = Resources.getResourceAsReader("mybatis-config.xml");
 		} catch (IOException ex) {
-			throw new IllegalStateException("Error reading MyBatis configuration" , ex);
+			throw new IllegalStateException("Error reading MyBatis configuration", ex);
 		}
 		return new SqlSessionFactoryBuilder().build(reader);
 	}
