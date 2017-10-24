@@ -1,6 +1,6 @@
 package com.site.service.domain;
 
-import com.site.dao.UserGroupDAO;
+import com.site.dao.domain.UserGroupDAO;
 import com.site.model.entity.UserGroup;
 import org.springframework.stereotype.Service;
 

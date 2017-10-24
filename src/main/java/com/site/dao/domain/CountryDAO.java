@@ -1,4 +1,4 @@
-package com.site.dao;
+package com.site.dao.domain;
 
 import com.site.model.entity.Country;
 import org.springframework.stereotype.Repository;

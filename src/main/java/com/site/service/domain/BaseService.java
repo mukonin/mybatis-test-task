@@ -1,6 +1,6 @@
 package com.site.service.domain;
 
-import com.site.dao.BaseDAO;
+import com.site.dao.domain.BaseDAO;
 import com.site.model.entity.AbstractIdentifiable;
 import lombok.AllArgsConstructor;
 

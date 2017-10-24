@@ -1,6 +1,6 @@
 package com.site.service.domain;
 
-import com.site.dao.LocationDAO;
+import com.site.dao.domain.LocationDAO;
 import com.site.model.entity.Location;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.site.service.domain;
 
-import com.site.dao.CountryDAO;
+import com.site.dao.domain.CountryDAO;
 import com.site.model.entity.Country;
 import org.springframework.stereotype.Service;
 
