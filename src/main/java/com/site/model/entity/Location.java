@@ -1,4 +1,4 @@
-package com.site.model;
+package com.site.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;

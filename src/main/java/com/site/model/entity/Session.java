@@ -1,4 +1,4 @@
-package com.site.model;
+package com.site.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table
+@Table(name = "sessions")
 @Setter
 @Getter
 public class Session extends AbstractIdentifiable {
