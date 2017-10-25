@@ -3,6 +3,7 @@ package com.site.mapper.domain;
 import com.site.model.domain.Session;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -29,6 +30,7 @@ public interface SessionMapper extends CrudMapper<Session> {
 	Session findById(Integer id);
 
 	@Insert("INSERT INTO session (user_id, date_opened, date_closed) VALUES (#{userId}, #{dateOpened}, #{dateClosed})")
+	@Options(useGeneratedKeys=true, keyColumn = "id")
 	void create(Session session);
 
 	@Update("UPDATE session SET user_id = #{userId}, date_opened = #{dateOpened}, date_closed = #{dateClosed} WHERE id = #{id}")

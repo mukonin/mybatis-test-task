@@ -3,6 +3,7 @@ package com.site.mapper.domain;
 import com.site.model.domain.UserGroup;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -25,6 +26,7 @@ public interface UserGroupMapper extends CrudMapper<UserGroup> {
 	UserGroup findById(Integer id);
 
 	@Insert("INSERT INTO user_group (group_name) VALUES (#{groupName})")
+	@Options(useGeneratedKeys=true, keyColumn = "id")
 	void create(UserGroup userGroup);
 
 	@Update("UPDATE user_group SET group_name = #{groupName} WHERE id = #{id}")

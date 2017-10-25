@@ -3,6 +3,7 @@ package com.site.mapper.domain;
 import com.site.model.domain.Request;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -26,6 +27,7 @@ public interface RequestMapper extends CrudMapper<Request> {
 
 	@Insert("INSERT INTO request (url, method, params, session_id) " +
 			"VALUES (#{url}, #{method}), #{params}), #{sessionId})")
+	@Options(useGeneratedKeys=true, keyColumn = "id")
 	void create(Request request);
 
 	@Update("UPDATE request SET url = #{url}, method = #{method}, " +
