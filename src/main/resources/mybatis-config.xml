@@ -19,5 +19,11 @@
 	</environments>
 	<mappers>
 		<mapper class='com.site.mapper.ReportMapper'/>
+		<mapper class='com.site.mapper.domain.CountryMapper'/>
+		<mapper class='com.site.mapper.domain.LocationMapper'/>
+		<mapper class='com.site.mapper.domain.RequestMapper'/>
+		<mapper class='com.site.mapper.domain.SessionMapper'/>
+		<mapper class='com.site.mapper.domain.UserGroupMapper'/>
+		<mapper class='com.site.mapper.domain.UserMapper'/>
 	</mappers>
 </configuration>
