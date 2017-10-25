@@ -18,7 +18,7 @@ public interface UserMapper {
 			@Result(property = "locationId", column = "location_id"),
 			@Result(property = "userGroupId", column = "user_group_id")
 	})
-	List<User> getAll();
+	List<User> findAll();
 
 	@Select("SELECT * FROM user WHERE id = #{id}")
 	@Results({

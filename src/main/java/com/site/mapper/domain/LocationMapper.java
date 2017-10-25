@@ -17,7 +17,7 @@ public interface LocationMapper {
 			@Result(property = "locationName", column = "location_name"),
 			@Result(property = "countryId", column = "country_id")
 	})
-	List<Location> getAll();
+	List<Location> findAll();
 
 	@Select("SELECT * FROM location WHERE id = #{id}")
 	@Results({

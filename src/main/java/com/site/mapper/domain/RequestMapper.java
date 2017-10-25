@@ -16,7 +16,7 @@ public interface RequestMapper {
 	@Results({
 			@Result(property = "sessionId", column = "session_id")
 	})
-	List<Request> getAll();
+	List<Request> findAll();
 
 	@Select("SELECT * FROM request WHERE id = #{id}")
 	@Results({

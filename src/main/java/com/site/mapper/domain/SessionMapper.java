@@ -18,7 +18,7 @@ public interface SessionMapper {
 			@Result(property = "dateOpened", column = "date_opened"),
 			@Result(property = "dateClosed", column = "date_closed")
 	})
-	List<Session> getAll();
+	List<Session> findAll();
 
 	@Select("SELECT * FROM session WHERE id = #{id}")
 	@Results({

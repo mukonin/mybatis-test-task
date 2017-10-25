@@ -29,5 +29,5 @@ public interface ReportMapper {
 			@Result(property = "userName", column = "user_name"),
 			@Result(property = "countryName", column = "country_name")
 	})
-	List<Report> getAll();
+	List<Report> findAll();
 }

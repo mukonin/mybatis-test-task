@@ -16,7 +16,7 @@ public interface UserGroupMapper {
 	@Results({
 			@Result(property = "groupName", column = "group_name")
 	})
-	List<UserGroup> getAll();
+	List<UserGroup> findAll();
 
 	@Select("SELECT * FROM user_group WHERE id = #{id}")
 	@Results({

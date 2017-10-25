@@ -16,7 +16,7 @@ public interface CountryMapper {
 	@Results({
 			@Result(property = "countryName", column = "country_name")
 	})
-	List<Country> getAll();
+	List<Country> findAll();
 
 	@Select("SELECT * FROM country WHERE id = #{id}")
 	@Results({
