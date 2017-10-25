@@ -10,6 +10,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import static com.site.ApplicationConstant.EMPTY;
+
 @UtilityClass
 public class ExcelUtil {
 
@@ -30,7 +32,7 @@ public class ExcelUtil {
 
 			return result;
 		} catch (IOException ex) {
-			throw new DocumentProcessingException("Error processing XLS document");
+			throw new DocumentProcessingException("Error processing Excel document");
 		}
 	}
 
@@ -47,7 +49,7 @@ public class ExcelUtil {
 
 	private static void setCellValue(Cell cell, Object cellData) {
 		if (cellData == null) {
-			cell.setCellValue(" ");
+			cell.setCellValue(EMPTY);
 		} else if (cellData instanceof String) {
 			cell.setCellValue((String) cellData);
 		} else if (cellData instanceof Integer) {
