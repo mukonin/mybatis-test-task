@@ -18,18 +18,15 @@ public class WordUtil {
 		try (XWPFDocument document = new XWPFDocument();
 		     ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
 
-			if (tableData.length > 0) {
+			XWPFTable table = document.createTable(tableData.length, tableData[0].length);
 
-				XWPFTable table = document.createTable(0, tableData[0].length);
-
-				for (Object[] aTableData : tableData) {
-					XWPFTableRow row = table.createRow();
-					for (int cellIndex = 0; cellIndex < aTableData.length; cellIndex++) {
-						String value = aTableData[cellIndex] == null
-								? EMPTY
-								: aTableData[cellIndex].toString();
-						row.getCell(cellIndex).setText(value);
-					}
+			for (int rowIndex = 0; rowIndex < tableData.length; rowIndex++) {
+				XWPFTableRow row = table.getRow(rowIndex);
+				for (int cellIndex = 0; cellIndex < tableData[rowIndex].length; cellIndex++) {
+					String value = tableData[rowIndex][cellIndex] == null
+							? EMPTY
+							: tableData[rowIndex][cellIndex].toString();
+					row.getCell(cellIndex).setText(value);
 				}
 			}
 
