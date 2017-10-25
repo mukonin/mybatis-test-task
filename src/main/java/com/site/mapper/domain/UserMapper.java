@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
-public interface UserMapper {
+public interface UserMapper extends CrudMapper<User> {
 
 	@Select("SELECT * FROM user")
 	@Results({

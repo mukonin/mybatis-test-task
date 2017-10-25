@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
-public interface UserGroupMapper {
+public interface UserGroupMapper extends CrudMapper<UserGroup> {
 
 	@Select("SELECT * FROM user_group")
 	@Results({

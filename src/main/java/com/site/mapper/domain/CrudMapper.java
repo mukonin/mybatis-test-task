@@ -1,10 +1,10 @@
-package com.site.repository.domain;
+package com.site.mapper.domain;
 
 import com.site.model.domain.AbstractIdentifiable;
 
 import java.util.List;
 
-public interface CrudSupport<T extends AbstractIdentifiable> {
+public interface CrudMapper<T extends AbstractIdentifiable> {
 
 	List<T> findAll();
 

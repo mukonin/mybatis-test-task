@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
-public interface RequestMapper {
+public interface RequestMapper extends CrudMapper<Request> {
 
 	@Select("SELECT * FROM request")
 	@Results({

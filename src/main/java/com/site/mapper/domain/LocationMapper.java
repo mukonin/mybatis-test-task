@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
-public interface LocationMapper {
+public interface LocationMapper extends CrudMapper<Location> {
 
 	@Select("SELECT * FROM location")
 	@Results({

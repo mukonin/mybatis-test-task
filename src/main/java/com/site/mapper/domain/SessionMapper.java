@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
-public interface SessionMapper {
+public interface SessionMapper extends CrudMapper<Session> {
 
 	@Select("SELECT * FROM session")
 	@Results({

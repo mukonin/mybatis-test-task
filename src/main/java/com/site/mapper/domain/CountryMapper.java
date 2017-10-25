@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
-public interface CountryMapper {
+public interface CountryMapper extends CrudMapper<Country> {
 
 	@Select("SELECT * FROM country")
 	@Results({
