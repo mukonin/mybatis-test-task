@@ -15,7 +15,7 @@ public class ReportRepository {
 
 	private final SqlSessionFactory sessionFactory;
 
-	public List<Report> getAllReports() {
+	public List<Report> findAll() {
 		try (SqlSession sqlSession = sessionFactory.openSession()) {
 			ReportMapper reportMapper = sqlSession.getMapper(ReportMapper.class);
 			return reportMapper.getAll();

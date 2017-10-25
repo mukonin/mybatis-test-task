@@ -8,7 +8,7 @@ public interface CrudSupport<T extends AbstractIdentifiable> {
 
 	List<T> findAll();
 
-	T getById(Integer id);
+	T findById(Integer id);
 
 	void create(T model);
 
