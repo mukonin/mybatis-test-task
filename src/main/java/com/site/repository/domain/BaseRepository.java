@@ -15,37 +15,47 @@ public abstract class BaseRepository<T extends AbstractIdentifiable, M extends C
 	protected final Class<M> type;
 
 	public List findAll() {
-		try (SqlSession sqlSession = sessionFactory.openSession()) {
-			M mapper = sqlSession.getMapper(type);
-			return mapper.findAll();
+		try (SqlSession session = sessionFactory.openSession()) {
+			M mapper = session.getMapper(type);
+			List result = mapper.findAll();
+			session.close();
+			return result;
 		}
 	}
 
 	public T findById(Integer id) {
-		try (SqlSession sqlSession = sessionFactory.openSession()) {
-			M mapper = sqlSession.getMapper(type);
-			return (T) mapper.findById(id);
+		try (SqlSession session = sessionFactory.openSession()) {
+			M mapper = session.getMapper(type);
+			T result = (T) mapper.findById(id);
+			session.close();
+			return result;
 		}
 	}
 
 	public void create(T model) {
-		try (SqlSession sqlSession = sessionFactory.openSession()) {
-			M mapper = sqlSession.getMapper(type);
+		try (SqlSession session = sessionFactory.openSession()) {
+			M mapper = session.getMapper(type);
 			mapper.create(model);
+			session.commit();
+			session.close();
 		}
 	}
 
 	public void update(T model) {
-		try (SqlSession sqlSession = sessionFactory.openSession()) {
-			M mapper = sqlSession.getMapper(type);
+		try (SqlSession session = sessionFactory.openSession()) {
+			M mapper = session.getMapper(type);
 			mapper.update(model);
+			session.commit();
+			session.close();
 		}
 	}
 
 	public void delete(Integer id) {
-		try (SqlSession sqlSession = sessionFactory.openSession()) {
-			M mapper = sqlSession.getMapper(type);
+		try (SqlSession session = sessionFactory.openSession()) {
+			M mapper = session.getMapper(type);
 			mapper.delete(id);
+			session.commit();
+			session.close();
 		}
 	}
 }
