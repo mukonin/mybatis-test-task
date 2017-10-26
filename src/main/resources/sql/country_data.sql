@@ -40,7 +40,7 @@ VALUES
   ('Comoros', 'Arabic and French'),
   ('Congo', 'French'),
   ('Costa Rica', 'Spanish'),
-  ('Côte d\'Ivoire', 'French'),
+  ('Cote d Ivoire', 'French'),
   ('Croatia', 'Croatian'),
   ('Cuba', 'Spanish'),
   ('Cyprus', 'Greek'),
