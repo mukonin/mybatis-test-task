@@ -13,7 +13,7 @@ import java.util.List;
 
 public interface SessionMapper extends CrudMapper<Session> {
 
-	@Select("SELECT * FROM session")
+	@Select("SELECT * FROM sessions")
 	@Results({
 			@Result(property = "userId", column = "user_id"),
 			@Result(property = "dateOpened", column = "date_opened"),
@@ -21,7 +21,7 @@ public interface SessionMapper extends CrudMapper<Session> {
 	})
 	List<Session> findAll();
 
-	@Select("SELECT * FROM session WHERE id = #{id}")
+	@Select("SELECT * FROM sessions WHERE id = #{id}")
 	@Results({
 			@Result(property = "userId", column = "user_id"),
 			@Result(property = "dateOpened", column = "date_opened"),
@@ -29,13 +29,13 @@ public interface SessionMapper extends CrudMapper<Session> {
 	})
 	Session findById(Integer id);
 
-	@Insert("INSERT INTO session (user_id, date_opened, date_closed) VALUES (#{userId}, #{dateOpened}, #{dateClosed})")
+	@Insert("INSERT INTO sessions (user_id, date_opened, date_closed) VALUES (#{userId}, #{dateOpened}, #{dateClosed})")
 	@Options(useGeneratedKeys=true, keyColumn = "id")
 	void create(Session session);
 
-	@Update("UPDATE session SET user_id = #{userId}, date_opened = #{dateOpened}, date_closed = #{dateClosed} WHERE id = #{id}")
+	@Update("UPDATE sessions SET user_id = #{userId}, date_opened = #{dateOpened}, date_closed = #{dateClosed} WHERE id = #{id}")
 	void update(Session session);
 
-	@Delete("DELETE FROM session WHERE id=#{id}")
+	@Delete("DELETE FROM sessions WHERE id=#{id}")
 	void delete(Integer id);
 }
