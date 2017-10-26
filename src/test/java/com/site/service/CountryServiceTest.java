@@ -1,4 +1,4 @@
-package com.site;
+package com.site.service;
 
 import com.site.model.domain.Country;
 import com.site.service.domain.CountryService;
@@ -42,18 +42,18 @@ public class CountryServiceTest {
 		assertEquals(country.getCountryName(), created.getCountryName());
 		assertEquals(country.getLanguage(), created.getLanguage());
 
-		country.setCountryName("NewCountry");
-		country.setLanguage("NewLanguage");
+		created.setCountryName("NewCountry");
+		created.setLanguage("NewLanguage");
 
-		service.update(country);
+		service.update(created);
 
-		Country updated = service.findById(country.getId());
-		assertEquals(country.getCountryName(), updated.getCountryName());
-		assertEquals(country.getLanguage(), updated.getLanguage());
+		Country updated = service.findById(created.getId());
+		assertEquals(created.getCountryName(), updated.getCountryName());
+		assertEquals(created.getLanguage(), updated.getLanguage());
 
-		service.delete(country.getId());
+		service.delete(created.getId());
 
-		Country deleted = service.findById(country.getId());
+		Country deleted = service.findById(created.getId());
 		assertEquals(null, deleted);
 	}
 }
